@@ -84,6 +84,17 @@ $(document).ready(function() {
 	$("#sort_time").click(function() {
 		checkBeforeSort("time");
 	});
+
+	// change faceicon
+	$("#face_dropdown li a").click(function(){
+		console.log("Click: " + $(this).eq(0).html());
+		var newClass = $(this).children().eq(0).attr('class');
+		console.log("Will append newClass: " + newClass);
+		
+		var tmp = $("#face_dropdown-toggle .faceicon").removeClass();	
+		tmp.addClass(newClass);
+		tmp.addClass("faceicon-sm");
+    });
 });
 	
 	
