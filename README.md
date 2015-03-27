@@ -3,6 +3,7 @@
   
 2015.3.27  12:25  (Luan)  
 Progress: Sticker ready
+// Note: packet format has been slightly adjusted for sitcker feature
   
 2015.3.18  01:30  (Luan)  
 Progress: Client's interface almost done  
