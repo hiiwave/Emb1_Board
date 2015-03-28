@@ -12,3 +12,27 @@ body {
 #divSend, #divBoard {
 	margin-top: 20px;
 }
+
+.faceicon {
+	background-image:url('face_icons_6.png'); /*your location of the image may differ*/
+	background-repeat: no-repeat;
+	background-size: 300%;
+	display: inline-block;
+	/*float: left;*/
+	height:21px;
+	width:21px;
+}
+
+.faceicon-sm {
+	height: 14px;
+	width: 14px;
+}
+
+.smile {background-position:0 0;}
+.happy {background-position:50% 0;}
+.laugh {background-position:100% 0;}
+.joke  {background-position:0 100%;}
+.wavy  {background-position:50% 100%;}
+.sad   {background-position:100% 100%;}
+
+

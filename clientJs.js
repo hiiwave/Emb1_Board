@@ -3,6 +3,7 @@ $(document).ready(function() {
 		var newTr = '<tr>  \
 		      <td>' + packet._sender + '</td>  \
 		      <td>' + packet._msg + '</td>     \
+		      <td><span class="faceicon faceicon-sm ' + packet._face + '"></span></td>  \
 		      <td>' + packet._time + '</td>    \
 		    </tr>';
 		$("#board tbody").prepend(newTr);
@@ -37,6 +38,11 @@ $(document).ready(function() {
 	};
 	$("#refresh").click(retrieveDataFromServer);
 
+	var getFaceSelect = function() {
+		var face = $("#face_dropdown-toggle .faceicon").attr('class').replace("faceicon faceicon-sm ", "");
+		return face;
+	}
+
 	var sendMessage = function() {
 		var sender = $("#msgSender").val();
 		var msg = $("#msgBody").val();
@@ -45,10 +51,16 @@ $(document).ready(function() {
 		}
 		$("#msgBody").val("");
 		var time = "...";  // TODO: get current time
-		console.log(sender + " is going to send \"" + msg + "\"");
+
+		var face = getFaceSelect();	 // TODO: pack in packet
+		var faceToogleBtn = $("#face_dropdown-toggle .faceicon");
+		faceToogleBtn.attr('class', "faceicon faceicon-sm smile");
+
+		console.log(sender + " is going to send \"" + msg + "\" with face: " + face);
 		var packet = {
 			_sender : sender,
 			_msg : msg,
+			_face : face,
 			_time : time,
 		}
 		prependNewMsg(packet);
@@ -84,6 +96,19 @@ $(document).ready(function() {
 	$("#sort_time").click(function() {
 		checkBeforeSort("time");
 	});
+
+	// change faceicon
+	$("#face_dropdown li a").click(function() {
+		console.log("Click: " + $(this).eq(0).html());
+		var newClass = $(this).children().eq(0).attr('class');
+		newClass = newClass.replace("faceicon ", '');		
+		console.log("Will append newClass: " + newClass);
+		
+		var toogleBtn = $("#face_dropdown-toggle .faceicon");
+		toogleBtn.attr('class', "faceicon faceicon-sm");
+		toogleBtn.addClass(newClass);
+		console.log("Select Face: " + getFaceSelect())	;
+    });
 });
 	
 	
