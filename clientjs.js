@@ -35,6 +35,7 @@ $(document).ready(function() {
 		};
 		xhr.send();
 	};
+	retrieveDataFromServer();
 	$("#refresh").click(retrieveDataFromServer);
 
 	var getFaceSelect = function() {
@@ -42,7 +43,7 @@ $(document).ready(function() {
 		return face;
 	}
 
-	//retrieveDataFromServer();
+	
 	
 	var sendMessage = function() {
 		var sender = $("#msgSender").val();
