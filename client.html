@@ -1,78 +1,106 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Mood Sharing</title>
-	<meta charset="utf-8">
-	<!-- jQuery library -->
-	<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
-	<!-- Bootstrap library -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-	<!-- Self -->
-	<link rel="stylesheet" href="clientCss.css"></script>
-	<script type="text/javascript" src="clientJs.js"></script>
+   <title>Mood Sharing</title>
+   <meta charset="utf-8">
+   <!-- jQuery library -->
+   <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+   <!-- Bootstrap library -->
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+   <!-- Self -->
+   <link rel="stylesheet" href="clientcss.css"></script>
+   <script type="text/javascript" src="clientjs.js"></script>
 </head>
 <body>
-	<div class="top-header">
-		<h3>Welcome~~</h3>
-	</div>
-	
-	<div id="divSend" class="row">
-		<div class="col-sm-3">
-			<div class="input-group">
-				<span class="input-group-addon">@</span>
-				<input type="text" id="msgSender" class="form-control" placeholder="Name">
-			</div><!-- /input-group -->
-		</div><!-- /.col-sm-3 -->
-		<div class="col-sm-9">
-			<div class="input-group">
-				<input type="text" id="msgBody" class="form-control" placeholder="Write down your mood">
-				<span class="input-group-btn">
-					<button id="btnSend" class="btn btn-default" type="button">Send!</button>
-				</span>
-			</div><!-- /input-group -->
-		</div><!-- /.col-sm-9 -->
-	</div><!-- /.row -->
+   <div class="top-header">
+      <h3>Welcome~~</h3>
+   </div>
+   
+   <div id="divSend" class="row">
+      <div class="col-sm-3">
+         <div class="input-group">
+            <span class="input-group-addon">@</span>
+            <input type="text" id="msgSender" class="form-control" placeholder="Name">
+         </div><!-- /input-group -->
+      </div><!-- /.col-sm-3 -->
+      <div class="col-sm-9">
+         <div class="input-group">
+            <input type="text" id="msgBody" class="form-control" placeholder="Write down your mood">
+            <div class="input-group-btn">
+            <button type="button" id="face_dropdown-toggle" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+               <span class="faceicon faceicon-sm smile"></span> 
+               <span class="caret"></span>
+            </button>
+               <ul id="face_dropdown" class="dropdown-menu" role="menu">
+                  <li><a href="#">
+                     <span class="faceicon smile"></span>
+                  </a></li>
+                  <li><a href="#">
+                     <span class="faceicon happy"></span>
+                  </a></li>
+                  <li><a href="#">
+                     <span class="faceicon laugh"></span>
+                  </a></li>
+                  <li><a href="#">
+                     <span class="faceicon joke"></span>
+                  </a></li>
+                  <li><a href="#">
+                     <span class="faceicon wavy"></span>
+                  </a></li>
+                  <li><a href="#">
+                     <span class="faceicon sad"></span>
+                  </a></li>
+               </ul>
+            </div><!-- /btn-group -->
+            <span class="input-group-btn">
+               <button id="btnSend" class="btn btn-default" type="button">Send!</button>
+            </span>
+         </div><!-- /input-group -->
+      </div><!-- /.col-sm-9 -->
+   </div><!-- /.row -->
 
-	<div id="divBoard" class="panel panel-default" >
-	  <!-- Default panel contents 
-	  <div class="panel-heading">Panel heading</div> -->
-	  <!-- Table -->
-	  <table id="board" class="table">
-		<thead>
-			<tr>
-				<th class="col-sm-2">
-					<a id="sort_name" href="#">From
-						<span class="glyphicon glyphicon-sort-by-alphabet" aria-hidden="true"></span>
-					</a>
-				</th>
-				<th class="col-sm-7">
-					<a id="refresh" href="#">Message
-						<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
-					</a>
-				</th>
-				<th class="col-sm-3">
-					<a id="sort_time" href="#">Time
-						<span class="glyphicon glyphicon-time" aria-hidden="true"></span>
-					</a>
-				</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td>Mary</td>
-				<td>I am happy!</td>
-				<td>Today 13:50</td>
-			</tr>
-			<tr>
-				<td>Potter</td>
-				<td>Don't be affraid, I'll be with you</td>
-				<td>3/15 7:28</td>
-			</tr>
-		</tbody>
-	  </table>
-	  <input type="hidden" id="sortMethod" name="sortMethod" value="time">
-	</div>
-
-	
+   <div id="divBoard" class="panel panel-default" >
+      <!-- Default panel contents 
+      <div class="panel-heading">Panel heading</div> -->
+      <!-- Table -->
+      <table id="board" class="table">
+      <thead>
+         <tr>
+            <th class="col-sm-2">
+               <a id="sort_name" href="#">From
+                  <span class="glyphicon glyphicon-sort-by-alphabet" aria-hidden="true"></span>
+               </a>
+            </th>
+            <th class="col-sm-6">
+               <a id="refresh" href="#">Message
+                  <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+               </a>
+            </th>
+            <th class="col-sm-1">
+            </th>
+            <th class="col-sm-3">
+               <a id="sort_time" href="#">Time
+                  <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+               </a>
+            </th>
+         </tr>
+      </thead>
+      <tbody>
+         <tr>
+            <td>Mary</td>
+            <td>I am happy!</td>
+            <td><span class="faceicon faceicon-sm happy"></span> </td>
+            <td>Today 13:50</td>
+         </tr>
+         <tr>
+            <td>Potter</td>
+            <td>Don't be affraid, I'll be with you</td>
+            <td><span class="faceicon faceicon-sm laugh"></span> </td>
+            <td>3/15 7:28</td>
+         </tr>
+      </tbody>
+      </table>
+      <input type="hidden" id="sortMethod" name="sortMethod" value="time">
+   </div>
 </body>
