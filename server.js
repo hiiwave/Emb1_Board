@@ -71,7 +71,7 @@ var postRequestHandler =function (req, res) {
       });
    }
    else if (req.url === '/retrieve') {
-      redis_client.lrange('all:comments', 0, -1, function(err, repl){
+      redis_client.lrange('all:comments', 0, 14, function(err, repl){
          if (err) {
             console.log('Error when reading from Redis', err);
             res.writeHead(500, { 'Content-Type': 'text/plain' });
