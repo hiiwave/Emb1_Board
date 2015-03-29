@@ -1,6 +1,9 @@
 # Emb1_Board
 --- This project is for practice only ---  
   
+2015.3.29 22:10 (Luan)  
+Finish All tasks, except for report  
+  
 2015.3.29 20:40 (Luan)  
 Everything work currently  
   
