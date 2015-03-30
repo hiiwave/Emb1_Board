@@ -1,6 +1,9 @@
 # Emb1_Board
 --- This project is for practice only ---  
   
+2015.3.31 0:13 (Luan)  
+Fix sort issue in chrome  
+  
 2015.3.30 23:20 (Luan)  
 Finish the report  
   

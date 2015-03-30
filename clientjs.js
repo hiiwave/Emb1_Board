@@ -27,15 +27,19 @@ $(document).ready(function() {
                 switch (Board.sortMethod) {
                 // switch ($("#sortMethod").val()) {
                     case "sort_name" :
-                        return pkt1._sender > pkt2._sender;
+                        console.log(pkt1._sender + " > " + pkt2._sender);
+                        // return pkt1._sender > pkt2._sender;
+                        return pkt1._sender.localeCompare(pkt2._sender);
                         break;
                     case "sort_msg" :
-                        return pkt1._msg > pkt2._msg;
+                        console.log(pkt1._msg + " > " + pkt2._msg);
+                        return pkt1._msg.localeCompare(pkt2._msg);
                         break;
                     case "sort_time" :
                         var d1 = new Date(pkt1._time);
                         var d2 = new Date(pkt2._time);
-                        return d1 < d2;
+                        console.log(pkt1._time + " < " + pkt2._time);
+                        return d2 - d1;
                         break;
                     default:
                         console.error("No such sortMethod: " + Board.sortMethod);
