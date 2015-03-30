@@ -22,7 +22,3 @@ Progress: Sticker ready
   
 2015.3.18  01:30  (Luan)  
 Progress: Client's interface almost done  
-  
-// TODO:  
-2. Sorting  
-4. Get current time  
