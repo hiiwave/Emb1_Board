@@ -29,6 +29,9 @@ $(document).ready(function() {
                     case "sort_name" :
                         return pkt1._sender > pkt2._sender;
                         break;
+                    case "sort_msg" :
+                        return pkt1._msg > pkt2._msg;
+                        break;
                     case "sort_time" :
                         var d1 = new Date(pkt1._time);
                         var d2 = new Date(pkt2._time);
@@ -63,7 +66,7 @@ $(document).ready(function() {
                 var date = new Date();
                 // date.setDate(date.getDate() - 1);    // test only
                 var time = date.toUTCString();
-                var face = Board.helper.getFaceSelect(); // TODO: pack in packet
+                var face = Board.helper.getFaceSelect();
                 var faceToogleBtn = $("#face_dropdown-toggle .faceicon");
                 faceToogleBtn.attr('class', "faceicon faceicon-sm smile");
                 console.log(sender + " is going to send \"" + msg + "\" with face: " + face);
@@ -135,19 +138,8 @@ $(document).ready(function() {
                 Board.message.retrieve();
             };
             $("#sort_name").click(sortClicked);
+            $("#sort_msg").click(sortClicked);
             $("#sort_time").click(sortClicked);
-            
-
-            // $("#sort_name").click(function() {
-            //     console.log("Sort by name");
-            //     $("#sortMethod").val("name");
-            //     Board.message.retrieve();
-            // });
-            // $("#sort_time").click(function() {
-            //     console.log("Sort by time");
-            //     $("#sortMethod").val("time");
-            //     Board.message.retrieve();
-            // });
         }
     };
     Board.init();    
